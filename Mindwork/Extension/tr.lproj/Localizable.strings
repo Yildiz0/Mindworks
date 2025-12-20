@@ -1,0 +1,487 @@
+//
+//  Localizable.strings
+//  Tendria
+//
+//  Created by Yakup Kavak on 19.01.2025.
+//
+
+"welcome" = "Hoşgeldin";
+"sign_account" = "Hesabına giriş yap";
+"username" = "Kullanıcı Adı";
+"password" = "Şifre";
+"forgot_password" = "Şifreni mi unuttun?";
+"create" = "Oluştur";
+"dont_account" = "Hesabın yok mu?";
+"sign_in" = "Giriş yap";
+"create_account" = "Hesap Oluştur";
+"email" = "E-posta";
+"already_account" = "Zaten hesabın var mı?";
+"reset_password" = "Şifreni sıfırla";
+"reset" = "Sıfırla";
+"error" = "Hata";
+
+"full_name" = "İsim Soyisim";
+"email_already_in_use" = "Bu e-posta adresi zaten kullanılıyor.";
+"invalid_email" = "Geçersiz e-posta adresi.";
+"weak_password" = "Şifreniz çok zayıf. Daha güçlü bir şifre seçin.";
+"network_error" = "Bağlantı hatası. Lütfen internetinizi kontrol edin.";
+"user_disabled" = "Bu hesap devre dışı bırakılmıştır.";
+"wrong_password" = "Yanlış şifre girdiniz.";
+"unknown_error" = "Bilinmeyen bir hata oluştu. Lütfen tekrar deneyin.";
+
+"email_empty_error" = "Lütfen bir e-posta adresi girin.";
+"username_empty_error" = "Lütfen bir kullanıcı adı girin.";
+"password_empty_error" = "Lütfen bir şifre girin.";
+"full_name_empty_error" = "Lütfen adınızı ve soyadınızı girin.";
+
+"password_reset_success" = "Şifre sıfırlama e-postası adresinize gönderildi.";
+"user_not_found" = "Bu e-posta adresine sahip bir hesap bulunamadı.";
+"success" = "Başarılı";
+
+"collection_name" = "Koleksiyon adı";
+"collection_comment" = "Koleksiyon hakkında bir not ekleyin...";
+"note" = "Not";
+"title" = "Başlık";
+"task_name" = "Görev adı";
+"add_collection" = "Koleksiyonunu oluştur";
+"add_task" = "Görev ekle";
+"add" = "Ekle";
+
+"personal_info" = "Kişisel Bilgiler";
+"make_relation" = "İlişki Kur";
+"exist_relation" = "Mevcut İlişki";
+"change_password" = "Şifre Değiştir";
+"notifications" = "Bildirimler";
+"settings" = "Ayarlar";
+"log_out" = "Çıkış Yap";
+
+"create_relation_title" = "Partnerinize Bağlanın";
+"choose_one" = "Bağlanmak için kodunuzu";
+"generate_code" = "Oluşturun";
+"enter_code" = "Girin";
+"duplicate_code_error" = "Bu kod zaten kullanılıyor. Lütfen yeni bir kod oluşturun.";
+"invalid_user_id" = "Kullanıcı ID'si bulunamadı. Lütfen kontrol edip tekrar deneyin.";
+"invalid_relation_id" = "Relation ID'si bulunamadı. Lütfen kontrol edip tekrar deneyin.";
+"create_relation_first" = "Öncelikle bir ilişkiye sahip olmanız gerekmektedir.";
+"cancel" = "Vazgeç";
+"save" = "Kaydet";
+
+"crop_text" = "Tatlı bir kırpma yapalım 😊";
+"notification" = "Bildirim";
+"notification_subtext" = "Güncellemeleri ve hatırlatmaları almak için lütfen bildirimleri etkinleştirin";
+"turn_on" = "Açın";
+"skip_for_now" = "Şimdilik atla";
+"ok" = "Tamam";
+"NSUserNotificationUsageDescription" = "Bildirim almak için izin gerekiyor.";
+"new_relation_title" = "Kalpleriniz buluştu";
+"new_relation_subtext" = "Aşk, paylaşılan anılarla anlam kazanır. Şimdi her anınızı ${name} ile birlikte yazın.";
+"continue" = "Devam et";
+
+//Collection Memory
+"none_collection_title" = "Anılar biriktikçe güzelleşir... ☘️";
+"none_collection_text" = "Henüz bir koleksiyonun yok ama güzel anılar hep bir yerlerde seni bekliyor 💞\n
+İlk koleksiyonunu oluştur ve birlikte geçen zamanlara minik bir pencere aç 💚";
+"none_memory_title" = "Bu koleksiyon bir anı bekliyor...🥺";
+"none_memory_text" = "Koleksiyonun hazır ama içi henüz boş, tıpkı bir çerçevede fotoğrafı olmayan anı gibi.\n
+İlk anını ekleyerek bu özel köşeyi renklendirmeye ne dersin? 💖";
+"none_relation_title" = "Kalpler hazır, ama henüz el ele değil... 💕";
+"none_relation_text" = "Sen buradasın, o da bir yerlerde... Ama henüz burada buluşamadınız. 💚\n
+Partnerini davet et, birlikte anılarla dolu bir yolculuğa çıkın ☘️";
+
+/*Add Memory*/
+"add_memory" = "Hatıranızı ekle";
+"date" = "Tarih";
+"memory_name" = "Hatıranızın adı";
+"memory_comment" = "Hatıranız hakkında not ekleyin...";
+"select_date" = "Tarih seçin";
+"memory_added" = "Hatıranız başarıyla eklendi.";
+
+/*Memory Detail*/
+"comment_title" = "Yorum";
+"none_comment" = "Henüz bir yorumu bulunmuyor";
+
+/*Days*/
+"other" = "Başka";
+"date" = "Tarih";
+"monday" = "Pazartesi";
+"tuesday" = "Salı";
+"wednesday" = "Çarşamba";
+"thursday" = "Perşembe";
+"friday" = "Cuma";
+"saturday" = "Cumartesi";
+"sunday" = "Pazar";
+
+/* Months - Turkish */
+"january" = "Ocak";
+"february" = "Şubat";
+"march" = "Mart";
+"april" = "Nisan";
+"may" = "Mayıs";
+"june" = "Haziran";
+"july" = "Temmuz";
+"august" = "Ağustos";
+"september" = "Eylül";
+"october" = "Ekim";
+"november" = "Kasım";
+"december" = "Aralık";
+
+/*Event Screen*/
+"event_title" = "Etkinliğinizi kolayca ayarlayalım";
+"select_date" = "Tarihi seçin";
+"select_time" = "Zamanı seçin";
+"category" = "Kategori";
+"ten_minute_timer" = "10 dakika önce";
+"repeat" = "tekrarla";
+"other" = "Diğer";
+"from" = "Başlangıç";
+"to" = "Bitiş";
+"onayla" = "Onayla";
+"sameTimeError" = "Başlangıç ve bitiş saati aynı olamaz.";
+"startHour" = "Başlangıç saati";
+"endHour" = "Bitiş saati";
+"addNewCategory" = "Yeni Kategori Ekle";
+"categoryName" = "Kategori Adı";
+"categoryColor" = "Kategori Rengi";
+"title_empty" = "Başlık boş bırakılamaz.";
+"today" = "Bugün";
+"time" = "Zaman";
+"event" = "Etkinlik";
+
+/*User Info*/
+"edit_profile" = "Profili Düzenle";
+"your_information" = "Bilgilerin";
+"name" = "İsim";
+"surname" = "Soyisim";
+"mobile" = "Telefon";
+"name_placeholder" = "Adını gir";
+"surname_placeholder" = "Soyadını gir";
+"mobile_placeholder" = "Telefon numaranı gir";
+"email_placeholder" = "E-posta adresini gir";
+"update" = "Güncelle";
+
+"current_password" = "Güncel şifreniz";
+"new_password" = "Yeni şifreniz";
+"again_password" = "Şifre tekrarı";
+"empty" = "";
+"error_passwords_do_not_match" = "Şifreler uyuşmuyor.";
+"error_weak_password" = "Şifre en az 8 karakter ve bir büyük harf içermeli.";
+"error_empty_fields" = "Tüm alanları doldurun.";
+"error_invalid_current_password" = "Mevcut şifreniz hatalı.";
+"error_update_failed" = "Şifre güncellenirken bir hata oluştu.";
+"error_user_not_found" = "Kullanıcı bulunamadı.";
+"error_unknown" = "Bilinmeyen bir hata oluştu.";
+
+/* Konu Başlıkları */
+"questions_title" = "Sorular";
+"questions_description" = "Anlamlı sohbetlerle bağınızı güçlendirin";
+"love_title"       = "Aşk";
+"life_title"       = "Hayat";
+"philosophy_title" = "Felsefe";
+"firsts_title"     = "İlkler";
+"dreams_title"     = "Hayaller";
+"trust_title"      = "Güven";
+"whatIf_title"     = "Peki ya";
+"favorites_title"  = "Favoriler";
+"question_number" = "Soru %d";
+"next" = "Sonraki";
+"end" = "Bitir";
+"think_question" = "Sessizce düşünelim 🥰";
+"answer_question" = "Cevaplarınızı duyalım 🤩";
+"question_time" = "Soru süresi";
+"set_second" = "%d Saniye";
+"back" = "Geri";
+"question_select_title" = "Nasıl oynamak istersiniz?";
+"question_select_description" = "İster tek başına odaklan, ister çevrimiçi rakiplerle yarış.";
+"question_select_online" = "Çevrimiçi Oyna";
+"question_select_offline" = "Bireysel Oyna";
+"write_answer" = "Cevabınızı yazınız";
+"ready_answer" = "Hazırım";
+"change_answer" = "Cevabımı değiştir";
+"wrong_answer" = "Yanlış cevap";
+"true_answer" = "Doğru cevap";
+"memory_title" = "Hafıza";
+"memory_description" = "Odaklanarak hafızanızı geliştirin";
+"focus_title" = "Dikkat";
+"focus_description" = "Her oyunda dikkatiniz gelişsin";
+"place_time_title" = "Konum Zaman";
+"place_time_description" = "Farkındalığınızı geliştirin";
+"finish" = "Bitir";
+/* Find Color*/
+
+// TEXT KEYS
+"text_white"      = "Beyaz";
+"text_black"      = "Siyah";
+"text_gray"       = "Gri";
+"text_darkgray"   = "Koyu Gri";
+"text_lightgray"  = "Açık Gri";
+"text_red"        = "Kırmızı";
+"text_green"      = "Yeşil";
+"text_darkgreen"  = "Koyu Yeşil";
+"text_lightgreen" = "Açık Yeşil";
+"text_blue"       = "Mavi";
+"text_darkblue"   = "Koyu Mavi";
+"text_lightblue"  = "Açık Mavi";
+"text_yellow"     = "Sarı";
+"text_orange"     = "Turuncu";
+"text_purple"     = "Mor";
+"text_pink"       = "Pembe";
+"text_brown"      = "Kahverengi";
+"text_turquoise"  = "Turkuaz";
+"showing_numbers" = "Başlangıç numaraları";
+"start_remember" = "Ezberlemeye başla!";
+"loading" = "Yükleniyor...";
+
+//Numbers
+"number_zero"  = "Sıfır";
+"number_one"   = "Bir";
+"number_two"   = "İki";
+"number_three" = "Üç";
+"number_four"  = "Dört";
+"number_five"  = "Beş";
+"number_six"   = "Altı";
+"number_seven" = "Yedi";
+"number_eight" = "Sekiz";
+"number_nine"  = "Dokuz";
+
+"one_before" = "Bir önceki sayı neydi";
+"two_before" = "İki önceki sayı neydi";
+"three_before" = "Üç önceki sayıyı hatırla";
+"four_before" = "Dört önceki sayı neydi";
+
+"statistics_title" = "İstatistikler";
+"true_count %lld" = "Doğru: %lld";
+"wrong_count %lld" = "Yanlış: %lld";
+"average_answer %.2f" = "Ortalama cevap: %.2f sn";
+"percentage_truth %.2f" = "Doğruluk: %.2f%%";
+"main_page" = "Ana ekran";
+"start_again" = "Yeniden oyna";
+
+"firefly_title" = "Ateş böcekleri";
+"catch_pair" = "Eşleri Yakala";
+"colorful_words" = "Orada mıydı?";
+"was_it_there" = "Renkli Kelimeler";
+"which_different" = "Hangisi Farklı";
+"word_cube_title" = "Kelime Küpü";
+"reflex_title" = "Refleks";
+
+// WHICH COLOR KEYS
+"which_color_white"      = "Aşağıdakilerden hangisi beyaz renklidir";
+"which_color_black"      = "Aşağıdakilerden hangisi siyah renklidir";
+"which_color_gray"       = "Aşağıdakilerden hangisi gri renklidir";
+"which_color_darkgray"   = "Aşağıdakilerden hangisi koyu gri renklidir";
+"which_color_lightgray"  = "Aşağıdakilerden hangisi açık gri renklidir";
+"which_color_red"        = "Aşağıdakilerden hangisi kırmızı renklidir";
+"which_color_green"      = "Aşağıdakilerden hangisi yeşil renklidir";
+"which_color_darkgreen"  = "Aşağıdakilerden hangisi koyu yeşil renklidir";
+"which_color_lightgreen" = "Aşağıdakilerden hangisi açık yeşil renklidir";
+"which_color_blue"       = "Aşağıdakilerden hangisi mavi renklidir";
+"which_color_darkblue"   = "Aşağıdakilerden hangisi koyu mavi renklidir";
+"which_color_lightblue"  = "Aşağıdakilerden hangisi açık mavi renklidir";
+"which_color_yellow"     = "Aşağıdakilerden hangisi sarı renklidir";
+"which_color_orange"     = "Aşağıdakilerden hangisi turuncu renklidir";
+"which_color_purple"     = "Aşağıdakilerden hangisi mor renklidir";
+"which_color_pink"       = "Aşağıdakilerden hangisi pembe renklidir";
+"which_color_brown"      = "Aşağıdakilerden hangisi kahverengi renklidir";
+"which_color_turquoise"  = "Aşağıdakilerden hangisi turkuaz renklidir";
+
+// WHICH TEXT KEYS
+"which_text_white"      = "Aşağıdakilerden hangisinde beyaz yazmaktadır";
+"which_text_black"      = "Aşağıdakilerden hangisinde siyah yazmaktadır";
+"which_text_gray"       = "Aşağıdakilerden hangisinde gri yazmaktadır";
+"which_text_darkgray"   = "Aşağıdakilerden hangisinde koyu gri yazmaktadır";
+"which_text_lightgray"  = "Aşağıdakilerden hangisinde açık gri yazmaktadır";
+"which_text_red"        = "Aşağıdakilerden hangisinde kırmızı yazmaktadır";
+"which_text_green"      = "Aşağıdakilerden hangisinde yeşil yazmaktadır";
+"which_text_darkgreen"  = "Aşağıdakilerden hangisinde koyu yeşil yazmaktadır";
+"which_text_lightgreen" = "Aşağıdakilerden hangisinde açık yeşil yazmaktadır";
+"which_text_blue"       = "Aşağıdakilerden hangisinde mavi yazmaktadır";
+"which_text_darkblue"   = "Aşağıdakilerden hangisinde koyu mavi yazmaktadır";
+"which_text_lightblue"  = "Aşağıdakilerden hangisinde açık mavi yazmaktadır";
+"which_text_yellow"     = "Aşağıdakilerden hangisinde sarı yazmaktadır";
+"which_text_orange"     = "Aşağıdakilerden hangisinde turuncu yazmaktadır";
+"which_text_purple"     = "Aşağıdakilerden hangisinde mor yazmaktadır";
+"which_text_pink"       = "Aşağıdakilerden hangisinde pembe yazmaktadır";
+"which_text_brown"      = "Aşağıdakilerden hangisinde kahverengi yazmaktadır";
+"which_text_turquoise"  = "Aşağıdakilerden hangisinde turkuaz yazmaktadır";
+
+
+
+/* Love */
+"love_first_heartbeat_title" = "İlk Kalp Atışı";
+"love_first_heartbeat_description" = "Kalbinin sevgilin için hızlandığı o ilk anı anlat.";
+"love_best_thing_title" = "En Güzel Şey";
+"love_best_thing_description" = "Sevgilinin hayatına kattığı en güzel şey nedir?";
+"love_unexpected_quality_title" = "Sürpriz Özellik";
+"love_unexpected_quality_description" = "Seni beklenmedik şekilde etkileyen hangi özelliği onu daha çok sevmene yol açtı?";
+"love_little_gesture_title" = "Küçük Jest";
+"love_little_gesture_description" = "Sevgilinin seni her gün mutlu eden küçük hareketi nedir?";
+"love_shared_song_title" = "Bizim Şarkımız";
+"love_shared_song_description" = "Hangi şarkı ilişkinizi en iyi anlatıyor ve neden?";
+"love_future_moment_title" = "Gelecekte Bir An";
+"love_future_moment_description" = "Sevgilinle dört gözle beklediğin gelecekteki bir anı hayal et.";
+"love_support_memory_title" = "Destek Anısı";
+"love_support_memory_description" = "En çok desteğe ihtiyaç duyduğunda sevgilin sana nasıl yardım etti?";
+"love_random_note_title" = "Sürpriz Not";
+"love_random_note_description" = "Sevgilinin gününü güzelleştirmek için bırakacağın not ne olurdu?";
+"love_proudest_title" = "En Gurur Duyduğun An";
+"love_proudest_description" = "Sevgilinin hangi başarısı seni en çok gururlandırdı?";
+"love_lesson_title" = "Aşk Dersi";
+"love_lesson_description" = "Bu ilişki sana aşk hakkında daha önce bilmediğin ne öğretti?";
+
+/* Life */
+"life_big_move_title" = "İki Yıllık Taşınma";
+"life_big_move_description" = "Sevgilinin iş için iki yıl yurt dışına taşınması gerekseydi ne yapardın?";
+"life_daily_ritual_title" = "Günlük Ritüel";
+"life_daily_ritual_description" = "Birlikte sizi dengede tutan günlük ritüeliniz nedir?";
+"life_role_model_title" = "Rol Model";
+"life_role_model_description" = "İkinizin de hayran olduğu bir rol modeli ve nedenini paylaşın.";
+"life_work_balance_title" = "İş-Yaşam Dengesi";
+"life_work_balance_description" = "Uzun vadede kariyer ve ilişki dengesini nasıl kurmak istersiniz?";
+"life_money_view_title" = "Para Bakışı";
+"life_money_view_description" = "Sevgilini en çok şaşırtacak para alışkanlığın nedir?";
+"life_future_city_title" = "Gelecekteki Şehir";
+"life_future_city_description" = "Hangi şehirde yaşamayı hayal ediyorsunuz ve neden?";
+"life_health_priority_title" = "Sağlık Önceliği";
+"life_health_priority_description" = "Birlikte edinmek istediğiniz sağlıklı alışkanlık nedir?";
+"life_family_tradition_title" = "Aile Geleneği";
+"life_family_tradition_description" = "Hangi aile geleneğini sevgilinle sürdürmek istersin?";
+"life_time_travel_title" = "Zamanda Yolculuk";
+"life_time_travel_description" = "Sevgilinin geçmişinden bir günü izleyebilsen hangi günü seçerdin?";
+"life_hidden_skill_title" = "Gizli Yetenek";
+"life_hidden_skill_description" = "Sevgilinin bilmediği gizli yeteneğini paylaş.";
+
+/* Philosophy */
+"philosophy_happiness_title" = "Mutluluk Tanımı";
+"philosophy_happiness_description" = "Tatmin edici bir hayatı nasıl tanımlarsınız?";
+"philosophy_free_will_title" = "Özgür İrade";
+"philosophy_free_will_description" = "Yollarınızın kesişmesi kader mi seçimdi mi?";
+"philosophy_success_title" = "Başarı Ölçüsü";
+"philosophy_success_description" = "Çift olarak başarıyı nasıl ölçersiniz?";
+"philosophy_morality_title" = "Ahlaki Pusula";
+"philosophy_morality_description" = "Vazgeçilmez ahlaki değeriniz nedir?";
+"philosophy_failure_title" = "Başarısızlığa Bakış";
+"philosophy_failure_description" = "Seni bugünkü haline getiren bir başarısızlığı anlat.";
+"philosophy_identity_title" = "Kimlik Değişimi";
+"philosophy_identity_description" = "Bu ilişki kimliğini nasıl etkiledi?";
+"philosophy_beauty_title" = "Güzellik Ölçütü";
+"philosophy_beauty_description" = "Gerçek güzellik senin için ne anlama geliyor?";
+"philosophy_afterlife_title" = "Ahiret";
+"philosophy_afterlife_description" = "Ahirete inanıyor musun? Bu inanç kararlarını nasıl etkiliyor?";
+"philosophy_truth_title" = "Gerçek ve Algı";
+"philosophy_truth_description" = "Bir konuda tamamen farklı düşündüğünüz halde birbirinizi anlamayı nasıl başarırsınız?";
+
+/* Firsts */
+"firsts_first_notice_title" = "İlk Fark";
+"firsts_first_notice_description" = "Sevgilinde ilk dikkatini çeken detay neydi?";
+"firsts_first_date_title" = "İlk Buluşma";
+"firsts_first_date_description" = "İlk buluşmanızın en unutulmaz kısmı neydi?";
+"firsts_first_laugh_title" = "İlk Kahkaha";
+"firsts_first_laugh_description" = "Sevgilinin seni ilk kez gerçekten güldürdüğü anı anlat.";
+"firsts_first_support_title" = "İlk Destek";
+"firsts_first_support_description" = "Sevgilin seni ilk kez nasıl duygusal olarak destekledi?";
+"firsts_first_trip_title" = "İlk Seyahat";
+"firsts_first_trip_description" = "İlk seyahatinizde seni en çok ne şaşırttı?";
+"firsts_first_conflict_title" = "İlk Tartışma";
+"firsts_first_conflict_description" = "İlk anlaşmazlığınızı nasıl çözdünüz?";
+"firsts_first_gift_title" = "İlk Hediye";
+"firsts_first_gift_description" = "Sevgilinin ilk hediyesi sende hangi duyguyu uyandırdı?";
+"firsts_first_proud_title" = "İlk Gurur";
+"firsts_first_proud_description" = "Sevgilini biriyle tanıştırırken ilk ne zaman gurur duydun?";
+"firsts_first_nickname_title" = "İlk Lakap";
+"firsts_first_nickname_description" = "Birbirinize verdiğiniz ilk lakap neydi ve neden?";
+"firsts_first_fallinlove_title" = "Aşık Olduğunu Anladığın An";
+"firsts_first_fallinlove_description" = "Sevgiline aşık olduğunu ne zaman anladın?";
+
+/* Dreams */
+"dreams_biggest_goal_title" = "En Büyük Ortak Hedef";
+"dreams_biggest_goal_description" = "Birlikte başarmak istediğiniz en büyük hedef nedir?";
+"dreams_travel_bucket_title" = "Seyahat Listesi";
+"dreams_travel_bucket_description" = "Çift olarak gitmek istediğiniz ilk destinasyon neresi?";
+"dreams_future_home_title" = "Hayal Evi";
+"dreams_future_home_description" = "Hayalinizdeki evin atmosferini tarif edin.";
+"dreams_shared_project_title" = "Ortak Proje";
+"dreams_shared_project_description" = "Birlikte başlatmak istediğiniz yaratıcı proje nedir?";
+"dreams_skill_to_learn_title" = "Öğrenilecek Beceri";
+"dreams_skill_to_learn_description" = "Yan yana öğrenmek istediğiniz yeni bir beceri var mı?";
+"dreams_charity_title" = "Sosyal Sorumluluk";
+"dreams_charity_description" = "Çift olarak kuracağınız dernek hangi amaca hizmet ederdi?";
+"dreams_ideal_day_title" = "İdeal Gün";
+"dreams_ideal_day_description" = "Sabah-akşam arası mükemmel gününüzü anlatın.";
+"dreams_retirement_title" = "Emeklilik Hayali";
+"dreams_retirement_description" = "Emekliliğinizi nerede ve nasıl geçirmek istersiniz?";
+"dreams_world_change_title" = "Dünyayı Değiştir";
+"dreams_world_change_description" = "Dünyada birlikte değiştirmek istediğiniz tek şey ne olurdu?";
+"dreams_secret_dream_title" = "Gizli Hayal";
+"dreams_secret_dream_description" = "Kimseye söylemediğin bir hayalini paylaş.";
+
+/* Trust */
+"trust_confide_title" = "Güvenle Paylaş";
+"trust_confide_description" = "Sevgilinle kolayca paylaşabildiğin bir sır nedir?";
+"trust_boundaries_title" = "Sınırlar";
+"trust_boundaries_description" = "Bu ilişkide senin için vazgeçilmez kişisel sınır nedir?";
+"trust_jealousy_title" = "Kıskançlık";
+"trust_jealousy_description" = "Kıskançlık duygularını birlikte nasıl yönetiyorsunuz?";
+"trust_reassurance_title" = "Güvence";
+"trust_reassurance_description" = "Sevgilinden en çok hangi konuda güvence duymaya ihtiyaç duyarsın?";
+"trust_vulnerability_title" = "Kırılganlık";
+"trust_vulnerability_description" = "Sevgilinle hangi durumda kendini en kırılgan hissedersin?";
+"trust_social_media_title" = "Sosyal Medya";
+"trust_social_media_description" = "Güveni korumak için sosyal medyada koyduğunuz kural nedir?";
+"trust_apology_title" = "Özür Tarzı";
+"trust_apology_description" = "Nasıl bir özür senin için kabul edilir olur?";
+"trust_forgive_title" = "Affetmek";
+"trust_forgive_description" = "Affetmeyi senin için kolaylaştıran şey nedir?";
+"trust_future_conflict_title" = "Gelecekteki Tartışmalar";
+"trust_future_conflict_description" = "Gelecekte büyük tartışmaları nasıl ele almak istersiniz?";
+"trust_big_secret_title" = "Büyük Sır";
+"trust_big_secret_description" = "Paylaşmakta zorlanacağın ama sevgilinin anlayacağına güvendiğin sır nedir?";
+
+/* WhatIf */
+"whatif_swap_lives_title" = "Hayat Değişimi";
+"whatif_swap_lives_description" = "Bir günlüğüne hayatlarınızı değişseniz en çok ne şaşırtırdı?";
+"whatif_win_lottery_title" = "Piyango Çıksa";
+"whatif_win_lottery_description" = "Büyük ikramiyeyi birlikte kazansanız nasıl harcardınız?";
+"whatif_apocalypse_title" = "Kıyamet Ekibi";
+"whatif_apocalypse_description" = "Zombi kıyametinde hangi rolü üstlenirdiniz?";
+"whatif_long_distance_title" = "Bir Yıl Mesafe";
+"whatif_long_distance_description" = "Bir yıl ayrı kalsanız bağı nasıl güçlü tutardınız?";
+"whatif_fame_title" = "Birden Şöhret";
+"whatif_fame_description" = "Ani şöhret ilişkinizi nasıl etkilerdi?";
+"whatif_age_difference_title" = "Yaş Farkı";
+"whatif_age_difference_description" = "10 yıl yaş farkıyla tanışsaydınız dinamikler nasıl değişirdi?";
+"whatif_memory_loss_title" = "Hafıza Kaybı";
+"whatif_memory_loss_description" = "Sevgilin tüm anıları kaybetse kendini nasıl tanıtırdın?";
+"whatif_move_abroad_title" = "Yurtdışı Taşınma";
+"whatif_move_abroad_description" = "Yeni bir başlangıç için hangi ülkeyi seçerdiniz?";
+"whatif_parent_opinion_title" = "Aile Onayı Yok";
+"whatif_parent_opinion_description" = "Aileler ilişkinizi onaylamasa ne yapardınız?";
+"whatif_one_day_left_title" = "Son 24 Saat";
+"whatif_one_day_left_description" = "Birlikte son 24 saatiniz kalsa nasıl geçirirdiniz?";
+
+/* Favorites */
+"favorites_food_title" = "En Sevdiğin Yemek";
+"favorites_food_description" = "Hangi yemek seni asla yarı yolda bırakmaz?";
+"favorites_movie_title" = "En Sevdiğin Film";
+"favorites_movie_description" = "Tekrar tekrar izlemekten bıkmadığınız film hangisi?";
+"favorites_song_title" = "En Sevdiğin Şarkı";
+"favorites_song_description" = "Hangi şarkı moralini anında yükseltir?";
+"favorites_book_title" = "En Sevdiğin Kitap";
+"favorites_book_description" = "Seni en çok etkileyen kitap hangisi?";
+"favorites_city_title" = "En Sevdiğin Şehir";
+"favorites_city_description" = "Hangi şehir sana ikinci bir ev gibi geliyor?";
+"favorites_hobby_title" = "En Sevdiğin Hobi";
+"favorites_hobby_description" = "Saatlerce konuşabileceğin hobin nedir?";
+"favorites_season_title" = "En Sevdiğin Mevsim";
+"favorites_season_description" = "Hangi mevsim kişiliğini en iyi yansıtır ve neden?";
+"favorites_quote_title" = "En Sevdiğin Alıntı";
+"favorites_quote_description" = "Sana derinden dokunan bir alıntı paylaş.";
+"favorites_app_title" = "En Sevdiğin Uygulama";
+"favorites_app_description" = "Hangi uygulamayı en çok kullanıyorsun ve neden?";
+"favorites_memory_title" = "En Sevdiğin Ortak Anı";
+"favorites_memory_description" = "Hâlâ seni en çok gülümseten ortak anınız hangisi?";
+
+/* Games */
+"games_title" = "Oyunlar";
+"games_description" = "Birlikte oynayın, birbirinizi keşfedin";
+"story_title" = "Hikaye";
+"truthLie_title" = "Bir doğru İki yanlış";

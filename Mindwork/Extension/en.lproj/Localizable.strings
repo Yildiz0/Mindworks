@@ -1,0 +1,485 @@
+//
+//  Localizable.strings
+//  Tendria
+//
+//  Created by Yakup Kavak on 19.01.2025.
+//
+
+"welcome" = "Welcome";
+"sign_account" = "Sign in to your account";
+"username" = "Username";
+"password" = "Password";
+"forgot_password" = "Forgot your password?";
+"create" = "Create";
+"dont_account" = "Don't have an account?";
+"sign_in" = "Sign in";
+"create_account" = "Create Account";
+"email" = "E-mail";
+"already_account" = "Already have an account?";
+"reset_password" = "Reset password";
+"reset" = "Reset";
+"error" = "Error";
+"full_name" = "Full name";
+
+"email_already_in_use" = "This email is already in use.";
+"invalid_email" = "Invalid email address.";
+"weak_password" = "Your password is too weak. Please choose a stronger password.";
+"network_error" = "Network error. Please check your internet connection.";
+"user_disabled" = "This account has been disabled.";
+"wrong_password" = "You entered the wrong password.";
+"unknown_error" = "An unknown error occurred. Please try again.";
+
+"email_empty_error" = "Please enter an email address.";
+"username_empty_error" = "Please enter a username.";
+"password_empty_error" = "Please enter a password.";
+"full_name_empty_error" = "Please enter your full name.";
+
+"password_reset_success" = "A password reset email has been sent to your email address.";
+"user_not_found" = "No account found with this email address.";
+"success" = "Success";
+
+"collection_name" = "Collection title";
+"note" = "Note";
+"title" = "Title";
+"collection_comment" = "Add a brief note about the collection...";
+"task_name" = "Task Name";
+"add_collection" = "Create your collection";
+"add_task" = "Add task";
+"add" = "Add";
+
+"personal_info" = "Personal Info";
+"make_relation" = "Make Relation";
+"exist_relation" = "Existing Relation";
+"change_password" = "Change Password";
+"notifications" = "Notifications";
+"settings" = "Settings";
+"log_out" = "Log Out";
+
+"create_relation_title" = "Connect to your Partner";
+"choose_one" = "Enter your code to connect";
+"generate_code" = "Generate";
+"enter_code" = "Enter";
+"duplicate_code_error" = "This code is already in use. Please generate a new one.";
+"invalid_user_id" = "User ID not found. Please check and try again.";
+"invalid_relation_id" = "Relation ID not found. Please check and try again.";
+"cancel" = "Cancel";
+"save" = "Save";
+"crop_text" = "Let's do a sweet crop 😊";
+"notification" = "Notification";
+"notification_subtext" = "Please enable notifications to receive updates and reminders";
+"turn_on" = "Turn on";
+"skip_for_now" = "Skip for now";
+"ok" = "OK";
+"NSUserNotificationUsageDescription" = "We need permission to send notifications.";
+"new_relation_title" = "Your hearts met";
+"new_relation_subtext" = "Love gains meaning through shared memories. Now write down every memory with ${name}.";
+"continue" = "Continue";
+
+//Collection Memory
+"none_collection_title" = "Memories bloom with time... ☘️";
+"none_collection_text" = "You don't have a collection yet, but sweet memories are waiting to be remembered 💞\n
+Create your first collection and open a little window into your shared moments 💚";
+"none_memory_title" = "This collection is waiting for a memory... 🥺";
+"none_memory_text" = "Your collection is ready, but it's still empty like a frame without a photo.\n
+Why not add your first memory and bring this special corner to life? 💖";
+"none_relation_title" = "Two hearts, not yet connected...💕";
+"none_relation_text" = "You’re on your journey, but there’s no shared path just yet 💚\n
+Invite your partner and begin crafting memories together 💫";
+
+/** Add Memory*/
+"add_memory" = "Add new memory";
+"date" = "Date";
+"memory_name" = "Memory name";
+"memory_comment" = "Write about this memory...";
+"select_date" = "Select date";
+"memory_added" = "Memory added successfully.";
+
+/*Memory Detail*/
+"comment_title" = "Comment";
+"none_comment" = "No comments yet";
+
+/*Days*/
+"other" = "Other";
+"date" = "Tarih";
+"monday" = "Monday";
+"tuesday" = "Tuesday";
+"wednesday" = "Wednesday";
+"thursday" = "Thursday";
+"friday" = "Friday";
+"saturday" = "Saturday";
+"sunday" = "Sunday";
+
+/*Months*/
+"january" = "January";
+"february" = "February";
+"march" = "March";
+"april" = "April";
+"may" = "May";
+"june" = "June";
+"july" = "July";
+"august" = "August";
+"september" = "September";
+"october" = "October";
+"november" = "November";
+"december" = "December";
+
+/*Event Screen*/
+"event_title" = "Let's set the event easily";
+"select_date" = "Select date";
+"select_time" = "Select time";
+"category" = "Category";
+"ten_minute_timer" = "10 minutes before";
+"repeat" = "repeat";
+"other" = "Other";
+"from" = "From";
+"to" = "To";
+"accept" = "Accept";
+"sameTimeError" = "The start and end time cannot be the same.";
+"startHour" = "Start hour";
+"endHour" = "End hour";
+"addNewCategory" = "Add New Category";
+"categoryName" = "Category Name";
+"categoryColor" = "Category Color";
+"title_empty" = "The title cannot be empty.";
+"today" = "Today";
+"time" = "Time";
+"event" = "Event";
+
+/*Edit Profile*/
+"edit_profile" = "Edit Profile";
+"your_information" = "Your Information";
+"name" = "Name";
+"surname" = "Surname";
+"mobile" = "Mobile";
+"name_placeholder" = "Enter your name";
+"surname_placeholder" = "Enter your surname";
+"mobile_placeholder" = "Enter your mobile number";
+"email_placeholder" = "Enter your email";
+"update" = "Update";
+"current_password" = "Current password";
+"new_password" = "New password";
+"again_password" = "Repeat password";
+"empty" = "";
+"error_passwords_do_not_match" = "Passwords do not match.";
+"error_weak_password" = "Password must be at least 8 characters and contain at least one uppercase letter.";
+"error_empty_fields" = "Please fill in all fields.";
+"error_invalid_current_password" = "Your current password is incorrect.";
+"error_update_failed" = "An error occurred while updating your password.";
+"error_user_not_found" = "User not found.";
+"error_unknown" = "An unknown error occurred.";
+
+/* Topic Titles */
+"questions_title" = "Questions";
+"questions_description" = "Deepen your bond with meaningful conversations.";
+"love_title"       = "Love";
+"life_title"       = "Life";
+"philosophy_title" = "Philosophy";
+"firsts_title"     = "Firsts";
+"dreams_title"     = "Dreams";
+"trust_title"      = "Trust";
+"whatIf_title"     = "What If";
+"favorites_title"  = "Favorites";
+"question_number" = "Question %d";
+"next" = "Next";
+"finish" = "Finish";
+"think_question" = "Let's think in silence 🥰";
+"answer_question" = "Answer time 🤩";
+"question_time" = "Question time";
+"set_second" = "%d Seconds";
+"back" = "Back";
+"question_select_title" = "How would you like to play?";
+"question_select_description" = "Would you like to play together on the same device or online?";
+"question_select_online" = "Play Online";
+"question_select_offline" = "Play on Same Device";
+"write_answer" = "What is your answer";
+"ready_answer" = "I'm ready";
+"change_answer" = "Change it";
+"memory_title" = "Memory";
+"memory_description" = "Improve your memory with focus";
+"focus_title" = "Focus";
+"focus_description" = "Sharpen your attention with every game";
+"place_time_title" = "Place & Time";
+"place_time_description" = "Enhance your awareness";
+
+
+/* Localizable.strings (en) */
+
+// TEXT KEYS
+"text_white"      = "White";
+"text_black"      = "Black";
+"text_gray"       = "Gray";
+"text_darkgray"   = "Dark Gray";
+"text_lightgray"  = "Light Gray";
+"text_red"        = "Red";
+"text_green"      = "Green";
+"text_darkgreen"  = "Dark Green";
+"text_lightgreen" = "Light Green";
+"text_blue"       = "Blue";
+"text_darkblue"   = "Dark Blue";
+"text_lightblue"  = "Light Blue";
+"text_yellow"     = "Yellow";
+"text_orange"     = "Orange";
+"text_purple"     = "Purple";
+"text_pink"       = "Pink";
+"text_brown"      = "Brown";
+"text_turquoise"  = "Turquoise";
+"showing_numbers" = "Starting numbers";
+"start_remember" = "Start to memorize!";
+"loading" = "Loading...";
+
+//Numbers
+"number_zero"  = "Zero";
+"number_one"   = "One";
+"number_two"   = "Two";
+"number_three" = "Three";
+"number_four"  = "Four";
+"number_five"  = "Five";
+"number_six"   = "Six";
+"number_seven" = "Seven";
+"number_eight" = "Eight";
+"number_nine"  = "Nine";
+
+"one_before" = "What was the previous number";
+"two_before" = "What was the number two steps before";
+"three_before" = "Remember the number three steps before";
+"four_before" = "What was the number four steps before";
+
+"statistics_title" = "Statistics";
+"true_count %lld" = "Correct: %lld";
+"wrong_count %lld" = "Wrong: %lld";
+"average_answer %.2f" = "Average response: %.2f s";
+"percentage_truth %.2f" = "Accuracy: %.2f%%";
+
+"wrong_answer" = "Wrong answer!";
+"true_answer" = "True answer!";
+"main_page" = "Main screen";
+"start_again" = "Start again";
+
+"firefly_title" = "Fireflies";
+"catch_pair" = "Catch the Pair";
+"was_it_there" = "Was It There?";
+"colorful_words" = "Colorful Words";
+"which_different" = "Which Different";
+"word_cube_title" = "Word Cube";
+"reflex_title" = "Reflex";
+
+// WHICH COLOR KEYS
+"which_color_white"      = "Which of the following is white";
+"which_color_black"      = "Which of the following is black";
+"which_color_gray"       = "Which of the following is gray";
+"which_color_darkgray"   = "Which of the following is dark gray";
+"which_color_lightgray"  = "Which of the following is light gray";
+"which_color_red"        = "Which of the following is red";
+"which_color_green"      = "Which of the following is green";
+"which_color_darkgreen"  = "Which of the following is dark green";
+"which_color_lightgreen" = "Which of the following is light green";
+"which_color_blue"       = "Which of the following is blue";
+"which_color_darkblue"   = "Which of the following is dark blue";
+"which_color_lightblue"  = "Which of the following is light blue";
+"which_color_yellow"     = "Which of the following is yellow";
+"which_color_orange"     = "Which of the following is orange";
+"which_color_purple"     = "Which of the following is purple";
+"which_color_pink"       = "Which of the following is pink";
+"which_color_brown"      = "Which of the following is brown";
+"which_color_turquoise"  = "Which of the following is turquoise";
+
+// WHICH TEXT KEYS
+"which_text_white"      = "Which of the following says white";
+"which_text_black"      = "Which of the following says black";
+"which_text_gray"       = "Which of the following says gray";
+"which_text_darkgray"   = "Which of the following says dark gray";
+"which_text_lightgray"  = "Which of the following says light gray";
+"which_text_red"        = "Which of the following says red";
+"which_text_green"      = "Which of the following says green";
+"which_text_darkgreen"  = "Which of the following says dark green";
+"which_text_lightgreen" = "Which of the following says light green";
+"which_text_blue"       = "Which of the following says blue";
+"which_text_darkblue"   = "Which of the following says dark blue";
+"which_text_lightblue"  = "Which of the following says light blue";
+"which_text_yellow"     = "Which of the following says yellow";
+"which_text_orange"     = "Which of the following says orange";
+"which_text_purple"     = "Which of the following says purple";
+"which_text_pink"       = "Which of the following says pink";
+"which_text_brown"      = "Which of the following says brown";
+"which_text_turquoise"  = "Which of the following says turquoise";
+
+
+/* Love */
+"love_first_heartbeat_title" = "First Heartbeat";
+"love_first_heartbeat_description" = "Describe the exact moment you felt your heart race for your partner.";
+"love_best_thing_title" = "Best Thing";
+"love_best_thing_description" = "What is the single best thing your partner brings into your life?";
+"love_unexpected_quality_title" = "Unexpected Quality";
+"love_unexpected_quality_description" = "Which surprising trait made you fall even deeper in love?";
+"love_little_gesture_title" = "Little Gesture";
+"love_little_gesture_description" = "Name a small everyday gesture from your partner that makes you feel adored.";
+"love_shared_song_title" = "Our Song";
+"love_shared_song_description" = "Which song perfectly captures your relationship and why?";
+"love_future_moment_title" = "Future Moment";
+"love_future_moment_description" = "Imagine one future moment with your partner that you’re most excited for.";
+"love_support_memory_title" = "Support Memory";
+"love_support_memory_description" = "Recall a time your partner supported you when you needed it most.";
+"love_random_note_title" = "Random Love Note";
+"love_random_note_description" = "What message would you leave for your partner to brighten their random day?";
+"love_proudest_title" = "Proudest Moment";
+"love_proudest_description" = "Which achievement of your partner makes you feel the proudest?";
+"love_lesson_title" = "Love Lesson";
+"love_lesson_description" = "What has your relationship taught you about love that you never knew before?";
+
+/* Life */
+"life_big_move_title" = "Two-Year Move";
+"life_big_move_description" = "If your partner had to relocate abroad for two years, how would you handle it?";
+"life_daily_ritual_title" = "Daily Ritual";
+"life_daily_ritual_description" = "Which shared daily ritual keeps you both grounded?";
+"life_role_model_title" = "Role Model";
+"life_role_model_description" = "Who is a role model you both admire and why?";
+"life_work_balance_title" = "Work-Life Balance";
+"life_work_balance_description" = "How do you envision balancing career and relationship long-term?";
+"life_money_view_title" = "Money View";
+"life_money_view_description" = "What money habit of yours would surprise your partner most?";
+"life_future_city_title" = "Future City";
+"life_future_city_description" = "Which city could you see yourselves settling in and why?";
+"life_health_priority_title" = "Health Priority";
+"life_health_priority_description" = "Name one healthy habit you’d like to adopt together.";
+"life_family_tradition_title" = "Family Tradition";
+"life_family_tradition_description" = "Which family tradition would you love to continue with your partner?";
+"life_time_travel_title" = "Time Travel";
+"life_time_travel_description" = "If you could witness one day of your partner’s past, which would you choose?";
+"life_hidden_skill_title" = "Hidden Skill";
+"life_hidden_skill_description" = "Reveal a hidden skill your partner might not know you have.";
+
+/* Philosophy */
+"philosophy_happiness_title" = "Define Happiness";
+"philosophy_happiness_description" = "How do you each define a fulfilling life?";
+"philosophy_free_will_title" = "Free Will";
+"philosophy_free_will_description" = "Do you believe your paths crossed by choice or fate?";
+"philosophy_success_title" = "Measure of Success";
+"philosophy_success_description" = "How do you measure success as a couple?";
+"philosophy_morality_title" = "Moral Compass";
+"philosophy_morality_description" = "Which moral value is absolutely non-negotiable for you?";
+"philosophy_failure_title" = "Failure View";
+"philosophy_failure_description" = "What’s a failure that ultimately shaped who you are today?";
+"philosophy_identity_title" = "Identity Shift";
+"philosophy_identity_description" = "How has being in this relationship influenced your identity?";
+"philosophy_beauty_title" = "Beauty Standard";
+"philosophy_beauty_description" = "What does true beauty mean to you?";
+"philosophy_afterlife_title" = "Afterlife Thought";
+"philosophy_afterlife_description" = "Do you believe in an afterlife? How does that belief shape your choices?";
+"philosophy_legacy_title" = "Legacy";
+"philosophy_legacy_description" = "What legacy do you want to leave together?";
+"philosophy_truth_title" = "Truth and Perception";
+"philosophy_truth_description" = "How do you manage to understand each other when you completely disagree on something?";
+
+/* Firsts */
+"firsts_first_notice_title" = "First Notice";
+"firsts_first_notice_description" = "What detail did you notice first about your partner?";
+"firsts_first_date_title" = "First Date Memory";
+"firsts_first_date_description" = "What was the most memorable part of your first date?";
+"firsts_first_laugh_title" = "First Laugh";
+"firsts_first_laugh_description" = "Describe the first time your partner made you truly laugh.";
+"firsts_first_support_title" = "First Support";
+"firsts_first_support_description" = "Recall the first time your partner supported you emotionally.";
+"firsts_first_trip_title" = "First Trip";
+"firsts_first_trip_description" = "What surprised you most on your first trip together?";
+"firsts_first_conflict_title" = "First Conflict";
+"firsts_first_conflict_description" = "How did you resolve your first disagreement?";
+"firsts_first_gift_title" = "First Gift";
+"firsts_first_gift_description" = "What feeling did your partner's first gift evoke?";
+"firsts_first_proud_title" = "First Proud Moment";
+"firsts_first_proud_description" = "When did you first feel proud to introduce your partner to someone?";
+"firsts_first_nickname_title" = "First Nickname";
+"firsts_first_nickname_description" = "What’s the first nickname you gave each other and why?";
+"firsts_first_fallinlove_title" = "Realizing Love";
+"firsts_first_fallinlove_description" = "When did you first realize you were in love?";
+
+/* Dreams */
+"dreams_biggest_goal_title" = "Biggest Shared Goal";
+"dreams_biggest_goal_description" = "What is the biggest goal you want to achieve together?";
+"dreams_travel_bucket_title" = "Travel Bucket List";
+"dreams_travel_bucket_description" = "Which destination tops your couple bucket list?";
+"dreams_future_home_title" = "Dream Home";
+"dreams_future_home_description" = "Describe your dream home atmosphere.";
+"dreams_shared_project_title" = "Shared Project";
+"dreams_shared_project_description" = "Which creative project would you love to start together?";
+"dreams_skill_to_learn_title" = "Skill to Learn";
+"dreams_skill_to_learn_description" = "Which new skill would you like to learn side by side?";
+"dreams_charity_title" = "Giving Back";
+"dreams_charity_description" = "If you founded a charity as a couple, what cause would it serve?";
+"dreams_ideal_day_title" = "Ideal Day";
+"dreams_ideal_day_description" = "Describe your perfect day spent together from morning to night.";
+"dreams_retirement_title" = "Retirement Vision";
+"dreams_retirement_description" = "Where and how do you see yourselves spending retirement?";
+"dreams_world_change_title" = "World Change";
+"dreams_world_change_description" = "If you could change one thing in the world together, what would it be?";
+"dreams_secret_dream_title" = "Secret Dream";
+"dreams_secret_dream_description" = "Share a dream you haven’t told anyone else.";
+
+/* Trust */
+"trust_confide_title" = "Confide";
+"trust_confide_description" = "What’s something you find easy to confide in your partner?";
+"trust_boundaries_title" = "Boundaries";
+"trust_boundaries_description" = "Which personal boundary is crucial for you in this relationship?";
+"trust_jealousy_title" = "Jealousy";
+"trust_jealousy_description" = "How do you handle feelings of jealousy together?";
+"trust_reassurance_title" = "Reassurance";
+"trust_reassurance_description" = "What reassurance do you need most from your partner?";
+"trust_vulnerability_title" = "Vulnerability";
+"trust_vulnerability_description" = "In which situation do you feel most vulnerable with your partner?";
+"trust_social_media_title" = "Social Media";
+"trust_social_media_description" = "What social-media rule keeps trust intact for you?";
+"trust_apology_title" = "Apology Style";
+"trust_apology_description" = "How do you prefer to receive apologies?";
+"trust_forgive_title" = "Forgiveness";
+"trust_forgive_description" = "What makes forgiveness easier for you?";
+"trust_future_conflict_title" = "Future Conflict Plan";
+"trust_future_conflict_description" = "How would you like to handle big conflicts in the future?";
+"trust_big_secret_title" = "Big Secret";
+"trust_big_secret_description" = "Is there a secret you’d struggle to share but trust your partner to understand?";
+
+/* WhatIf */
+"whatif_swap_lives_title" = "Swap Lives";
+"whatif_swap_lives_description" = "If you swapped lives for a day, what would surprise you most?";
+"whatif_win_lottery_title" = "Win the Lottery";
+"whatif_win_lottery_description" = "How would you spend a lottery jackpot together?";
+"whatif_apocalypse_title" = "Apocalypse Team";
+"whatif_apocalypse_description" = "Which role would each of you take in a zombie apocalypse?";
+"whatif_long_distance_title" = "Long-Distance Year";
+"whatif_long_distance_description" = "How would you keep your bond strong during a year apart?";
+"whatif_fame_title" = "Sudden Fame";
+"whatif_fame_description" = "How would sudden fame change your relationship?";
+"whatif_age_difference_title" = "Age Shift";
+"whatif_age_difference_description" = "If you met with a 10-year age difference, how would dynamics change?";
+"whatif_memory_loss_title" = "Memory Loss";
+"whatif_memory_loss_description" = "How would you re-introduce yourself if your partner lost all memories?";
+"whatif_move_abroad_title" = "Move Abroad";
+"whatif_move_abroad_description" = "Which country would you choose for a fresh start together?";
+"whatif_parent_opinion_title" = "Parent Disapproval";
+"whatif_parent_opinion_description" = "What would you do if your families disapproved of your union?";
+"whatif_one_day_left_title" = "One Day Left";
+"whatif_one_day_left_description" = "How would you spend your last 24 hours together?";
+
+/* Favorites */
+"favorites_food_title" = "Favorite Food";
+"favorites_food_description" = "What meal never fails to comfort you?";
+"favorites_movie_title" = "Favorite Movie";
+"favorites_movie_description" = "Which movie do you both love rewatching?";
+"favorites_song_title" = "Favorite Song";
+"favorites_song_description" = "What song instantly lifts your spirits?";
+"favorites_book_title" = "Favorite Book";
+"favorites_book_description" = "Which book had the biggest impact on you?";
+"favorites_city_title" = "Favorite City";
+"favorites_city_description" = "Which city feels like a second home to you?";
+"favorites_hobby_title" = "Favorite Hobby";
+"favorites_hobby_description" = "What hobby could you talk about for hours?";
+"favorites_season_title" = "Favorite Season";
+"favorites_season_description" = "Which season best matches your personality and why?";
+"favorites_quote_title" = "Favorite Quote";
+"favorites_quote_description" = "Share a quote that resonates deeply with you.";
+"favorites_app_title" = "Favorite App";
+"favorites_app_description" = "Which app do you use most and why?";
+"favorites_memory_title" = "Favorite Memory Together";
+"favorites_memory_description" = "Which shared memory still makes you smile the widest?";
+
+/* Games */
+"games_title" = "Games";
+"games_description" = "Play together, discover each other";
