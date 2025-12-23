@@ -38,14 +38,26 @@ struct ReflexUI: View {
                 
                 Spacer()
                 
-                Circle()
-                    .fill(vm.currentColor.color)
-                    .frame(width: 200, height: 200)
-                    .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 8)
-                    .onTapGesture {
-                        vm.handleTap()
+                ZStack {
+                    Circle()
+                        .fill(vm.currentColor.color)
+                        .frame(width: 200, height: 200)
+                        .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 8)
+                        .onTapGesture {
+                            vm.handleTap()
+                        }
+                        .animation(.easeInOut(duration: 0.2), value: vm.currentColor)
+                    
+                    if vm.showScoreDelta, let delta = vm.lastScoreDelta {
+                        Text("+\(delta)")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            .shadow(radius: 4)
+                            .transition(.opacity.combined(with: .move(edge: .top)))
+                            .animation(.easeOut(duration: 0.2), value: vm.showScoreDelta)
                     }
-                    .animation(.easeInOut(duration: 0.2), value: vm.currentColor)
+                }
                 
                 Spacer()
                 
