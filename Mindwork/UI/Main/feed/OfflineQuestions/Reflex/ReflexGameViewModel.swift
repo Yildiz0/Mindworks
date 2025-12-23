@@ -14,10 +14,14 @@ final class ReflexGameViewModel: ObservableObject {
     @Published var currentColor: GameColor = .green
     @Published var gameState: GameState = .ready
     @Published var message = ""
+    @Published var lastScoreDelta: Int?
+    @Published var showScoreDelta = false
     
     private var timer: Timer?
     private var delay: Double = 1.5
     private let minDelay: Double = 0.6
+    private var redShownAt: Date?
+    private var hideScoreDeltaWorkItem: DispatchWorkItem?
     
     enum GameState {
         case ready, running, gameOver
@@ -37,6 +41,9 @@ final class ReflexGameViewModel: ObservableObject {
     
     func startGame() {
         score = 0
+        redShownAt = nil
+        lastScoreDelta = nil
+        showScoreDelta = false
         message = "Bu tur Yeşil ve Sarı’da bekleyeceksin, Kırmızı’da dokunacaksın!"
         gameState = .running
         nextColor()
@@ -45,6 +52,8 @@ final class ReflexGameViewModel: ObservableObject {
     func stopGame() {
         gameState = .gameOver
         timer?.invalidate()
+        hideScoreDeltaWorkItem?.cancel()
+        showScoreDelta = false
         if score > highScore {
             highScore = score
         }
@@ -55,7 +64,18 @@ final class ReflexGameViewModel: ObservableObject {
         guard gameState == .running else { return }
         
         if currentColor == .red {
-            score += 1
+            let bonus: Int
+            if let redShownAt {
+                let reactionTimeMs = max(0, Date().timeIntervalSince(redShownAt) * 1000)
+                let maxWindowMs = minDelay * 1000
+                let remainingMs = max(0, maxWindowMs - reactionTimeMs)
+                bonus = Int(remainingMs / 10)
+            } else {
+                bonus = 0
+            }
+            let delta = 1 + bonus
+            score += delta
+            showScoreDelta(delta)
             nextColor() // mesaj değişmeden devam etsin
         } else {
             stopGame()
@@ -67,11 +87,23 @@ final class ReflexGameViewModel: ObservableObject {
         
         let next = GameColor.allCases.randomElement()!
         currentColor = next
+        redShownAt = next == .red ? Date() : nil
         
         let nextDelay = max(delay - (Double(score) * 0.05), minDelay)
         timer = Timer.scheduledTimer(withTimeInterval: nextDelay, repeats: false) { [weak self] _ in
             guard let self = self else { return }
             self.nextColor()
         }
+    }
+
+    private func showScoreDelta(_ delta: Int) {
+        lastScoreDelta = delta
+        showScoreDelta = true
+        hideScoreDeltaWorkItem?.cancel()
+        let workItem = DispatchWorkItem { [weak self] in
+            self?.showScoreDelta = false
+        }
+        hideScoreDeltaWorkItem = workItem
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8, execute: workItem)
     }
 }
