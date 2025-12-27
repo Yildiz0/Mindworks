@@ -239,8 +239,7 @@ final class CatchPairViewModel: BaseViewModel {
 
     // MARK: - Sorular
     private func initializeQuestions() {
-        let randomIdList = Array(0...max(0, askCatchNumber.count - 1)).shuffled().prefix(lastQuestionNumber)
-        questionList = randomIdList.map { askCatchNumber[$0] }
+        questionList = buildQuestionList()
         applyQuestion(at: 0)
     }
 
@@ -258,6 +257,62 @@ final class CatchPairViewModel: BaseViewModel {
     }
 
     // MARK: - Yardımcılar
+    private func buildQuestionList() -> [CatchNumberQuestion] {
+        let totalQuestions = lastQuestionNumber
+        let baseCount = totalQuestions / 3
+        let remainder = totalQuestions % 3
+        var counts: [Int: Int] = [1: baseCount, 2: baseCount, 3: baseCount]
+
+        if remainder > 0 {
+            let extras = [1, 2, 3].shuffled().prefix(remainder)
+            extras.forEach { counts[$0, default: 0] += 1 }
+        }
+
+        var result: [CatchNumberQuestion] = []
+        var lastTwo: [Int] = []
+
+        while result.count < totalQuestions {
+            let disallowed = (lastTwo.count == 2 && lastTwo[0] == lastTwo[1]) ? lastTwo[0] : nil
+            let available = counts.filter { $0.value > 0 }.map(\.key)
+            let allowed = disallowed.map { disallowedValue in
+                available.filter { $0 != disallowedValue }
+            } ?? available
+            let pickPool = allowed.isEmpty ? available : allowed
+            guard let picked = weightedPick(from: pickPool, counts: counts) else { break }
+
+            result.append(makeQuestion(beforeNumber: picked))
+            counts[picked, default: 0] -= 1
+
+            lastTwo.append(picked)
+            if lastTwo.count > 2 { lastTwo.removeFirst() }
+        }
+
+        return result
+    }
+
+    private func weightedPick(from options: [Int], counts: [Int: Int]) -> Int? {
+        let total = options.reduce(0) { $0 + max(0, counts[$1, default: 0]) }
+        guard total > 0 else { return nil }
+        var roll = Int.random(in: 1...total)
+        for option in options {
+            roll -= max(0, counts[option, default: 0])
+            if roll <= 0 { return option }
+        }
+        return options.last
+    }
+
+    private func makeQuestion(beforeNumber: Int) -> CatchNumberQuestion {
+        switch beforeNumber {
+        case 1:
+            return CatchNumberQuestion(questionTitle: StringKey.one_before, beforeNumber: 1)
+        case 2:
+            return CatchNumberQuestion(questionTitle: StringKey.two_before, beforeNumber: 2)
+        case 3:
+            return CatchNumberQuestion(questionTitle: StringKey.three_before, beforeNumber: 3)
+        default:
+            return CatchNumberQuestion(questionTitle: StringKey.one_before, beforeNumber: 1)
+        }
+    }
     private func showNextNumber() {
         guard currentNumberIndex < numberList.count else { return }
         currentNumber = getNumberString(number: numberList[currentNumberIndex])
