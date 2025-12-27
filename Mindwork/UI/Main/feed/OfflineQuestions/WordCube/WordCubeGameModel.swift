@@ -15,14 +15,38 @@ struct WordCubeGameModel {
     let minLevel = 3
     let maxLevel = 15
     let wordDisplayDuration: TimeInterval = 1.2
+    let idealTimePerWord: TimeInterval = 5
     
-    /// Word pool used to generate sequences.
-    let wordPool: [String] = [
-        "apple", "table", "ocean", "pencil", "cloud", "road",
-        "cat", "book", "door", "tree", "light", "bag",
-        "car", "garden", "city", "window", "chair",
-        "sun", "moon", "leaf", "question", "answer", "time",
-        "color", "game", "bird", "fish", "flower", "mountain"
+    /// Word pools grouped by length to scale difficulty.
+    private let shortWords: [String] = [
+        "cat", "dog", "sun", "moon", "tree", "road", "book", "door", "fish", "bird",
+        "leaf", "rain", "wind", "star", "lamp", "milk", "cake", "lion", "bear", "frog",
+        "ship", "ball", "desk", "shoe", "game", "hand", "ring", "gold", "blue", "pink",
+        "snow", "rock", "sand", "fire", "wave", "note", "sock", "mask", "root", "lake"
+    ]
+
+    private let mediumWords: [String] = [
+        "apple", "table", "ocean", "pencil", "cloud", "chair", "light", "smile", "dream", "brush",
+        "river", "cabin", "stone", "bread", "green", "flame", "radio", "crown", "honey", "music",
+        "earth", "glass", "train", "party", "sugar", "tiger", "camel", "grape", "sound", "watch"
+    ]
+
+    private let longWords: [String] = [
+        "garden", "window", "planet", "silver", "hunter", "magnet", "bridge", "summer", "forest", "orange",
+        "yellow", "market", "school", "rabbit", "sailor", "camera", "castle", "pocket", "flower", "throne",
+        "travel", "mirror", "tunnel", "ticket", "winter", "beacon", "bottle", "glider", "canyon", "voyage"
+    ]
+
+    private let longerWords: [String] = [
+        "mountain", "question", "answering", "building", "painting", "sunlight", "notebook", "happiness",
+        "language", "football", "cheerful", "treasure", "umbrella", "chocolate", "adventure", "triangle",
+        "merchant", "ceremony", "backpack", "waterfall", "sandwich", "dangerous", "beautiful", "butterfly"
+    ]
+
+    private let longestWords: [String] = [
+        "electricity", "photograph", "celebration", "microphone", "helicopter", "temperature", "revolution",
+        "friendship", "imagination", "comfortable", "responsible", "conversation", "environment", "playground",
+        "basketball", "application", "volunteer", "association", "extraordinary", "constellation"
     ]
     
     // MARK: - Types
@@ -48,18 +72,35 @@ struct WordCubeGameModel {
     
     // MARK: - Logic Helpers (pure functions)
     
-    /// Generates a random sequence of words of given length.
-    func generateRandomWords(count: Int) -> [String] {
-        var pool = wordPool.shuffled()
+    /// Generates a random sequence of words of given length, scaling word length by level.
+    func generateRandomWords(level: Int) -> [String] {
+        let pool = poolForLevel(level).shuffled()
+        let targetCount = level
+        var workingPool = pool
         var result: [String] = []
         
-        for _ in 0..<count {
-            if pool.isEmpty {
-                pool = wordPool.shuffled()
+        for _ in 0..<targetCount {
+            if workingPool.isEmpty {
+                workingPool = poolForLevel(level).shuffled()
             }
-            result.append(pool.removeFirst())
+            result.append(workingPool.removeFirst())
         }
         return result
+    }
+
+    /// Calculates score delta based on correct answers and response time.
+    func scoreDelta(correctCount: Int, wordCount: Int, responseTime: TimeInterval) -> Int {
+        let baseScore = correctCount * 10
+        let bonus = speedBonus(wordCount: wordCount, responseTime: responseTime)
+        return baseScore + bonus
+    }
+
+    func speedBonus(wordCount: Int, responseTime: TimeInterval) -> Int {
+        let idealTime = Double(wordCount) * idealTimePerWord
+        guard responseTime > 0, responseTime < idealTime else { return 0 }
+        let ratio = (idealTime - responseTime) / idealTime
+        let rawBonus = Int((ratio * 10).rounded(.toNearestOrAwayFromZero))
+        return min(10, max(0, rawBonus))
     }
     
     /// Evaluates user's answers and returns how the game state should change.
@@ -86,7 +127,7 @@ struct WordCubeGameModel {
         var failedMin = failedAttemptsAtMinLevel
         var feedback = ""
         var isGameOver = false
-        var scoreDelta = correct           // 1 point per correct word
+        let scoreDelta = 0
         
         // Special rule for first level (level = 3)
         if level == minLevel {
@@ -138,5 +179,20 @@ struct WordCubeGameModel {
             isGameOver: isGameOver,
             scoreDelta: scoreDelta
         )
+    }
+
+    private func poolForLevel(_ level: Int) -> [String] {
+        switch level {
+        case minLevel...4:
+            return shortWords
+        case 5...6:
+            return mediumWords
+        case 7...8:
+            return longWords
+        case 9...11:
+            return longerWords
+        default:
+            return longestWords
+        }
     }
 }

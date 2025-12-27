@@ -16,10 +16,14 @@ final class WordCubeGameViewModel: ObservableObject {
     @Published private(set) var phase: WordCubeGameModel.Phase = .idle
     @Published private(set) var level: Int
     @Published private(set) var score: Int = 0
+    @Published private(set) var elapsedTime: TimeInterval = 0
     @Published private(set) var currentWords: [String] = []
     @Published private(set) var displayedWord: String = ""
     @Published private(set) var lastCorrectCount: Int = 0
     @Published private(set) var feedbackMessage: String = ""
+    @Published private(set) var totalCorrect: Int = 0
+    @Published private(set) var totalWrong: Int = 0
+    @Published private(set) var averageResponseTime: TimeInterval = 0
     
     /// Text fields for user answers (one per word).
     @Published var userInputs: [String] = []
@@ -29,6 +33,11 @@ final class WordCubeGameViewModel: ObservableObject {
     private let model = WordCubeGameModel()
     private var failedAttemptsAtMinLevel: Int = 0
     private var currentWordIndex: Int = 0
+    private var timerCancellable: AnyCancellable?
+    private var timerStartDate: Date?
+    private var recallStartDate: Date?
+    private var totalResponseTime: TimeInterval = 0
+    private var totalWordsAttempted: Int = 0
     
     // Exposed read-only for the view
     var minLevel: Int { model.minLevel }
@@ -39,6 +48,7 @@ final class WordCubeGameViewModel: ObservableObject {
     
     init() {
         self.level = model.minLevel
+        startTimer()
         startNewRound()
     }
     
@@ -65,18 +75,23 @@ final class WordCubeGameViewModel: ObservableObject {
     
     func endGameTapped() {
         phase = .gameOver
-        feedbackMessage = "You chose to end the game at level \(level). Your final score is \(score)."
+        stopTimer()
+    }
+
+    func restartGameTapped() {
+        restartGame()
     }
     
     // MARK: - Game Flow
     
     func startNewRound() {
-        currentWords = model.generateRandomWords(count: level)
+        currentWords = model.generateRandomWords(level: level)
         userInputs = Array(repeating: "", count: level)
         displayedWord = ""
         lastCorrectCount = 0
         feedbackMessage = ""
         currentWordIndex = 0
+        recallStartDate = nil
         phase = .idle
     }
     
@@ -84,6 +99,12 @@ final class WordCubeGameViewModel: ObservableObject {
         level = model.minLevel
         score = 0
         failedAttemptsAtMinLevel = 0
+        totalCorrect = 0
+        totalWrong = 0
+        totalResponseTime = 0
+        totalWordsAttempted = 0
+        averageResponseTime = 0
+        resetTimer()
         startNewRound()
     }
     
@@ -110,12 +131,14 @@ final class WordCubeGameViewModel: ObservableObject {
                 if self.phase == .showingWords {
                     self.displayedWord = ""
                     self.phase = .recalling
+                    self.recallStartDate = Date()
                 }
             }
         }
     }
     
     private func checkAnswers() {
+        let responseTime = Date().timeIntervalSince(recallStartDate ?? Date())
         let result = model.evaluateRound(
             expected: currentWords,
             userInputs: userInputs,
@@ -127,12 +150,52 @@ final class WordCubeGameViewModel: ObservableObject {
         level = result.newLevel
         failedAttemptsAtMinLevel = result.newFailedAttemptsAtMinLevel
         feedbackMessage = result.feedbackMessage
-        score += result.scoreDelta
+        let scoreDelta = model.scoreDelta(
+            correctCount: result.correctCount,
+            wordCount: currentWords.count,
+            responseTime: responseTime
+        )
+        score += scoreDelta
+        totalCorrect += result.correctCount
+        let wrongCount = max(0, currentWords.count - result.correctCount)
+        totalWrong += wrongCount
+        totalResponseTime += responseTime
+        totalWordsAttempted += currentWords.count
+        if totalWordsAttempted > 0 {
+            averageResponseTime = totalResponseTime / Double(totalWordsAttempted)
+        }
         
         if result.isGameOver {
             phase = .gameOver
+            stopTimer()
         } else {
             phase = .result
         }
+    }
+
+    var accuracyRate: Double {
+        guard totalWordsAttempted > 0 else { return 0 }
+        return Double(totalCorrect) / Double(totalWordsAttempted)
+    }
+
+    private func startTimer() {
+        timerStartDate = Date()
+        timerCancellable = Timer.publish(every: 0.05, on: .main, in: .common)
+            .autoconnect()
+            .sink { [weak self] _ in
+                guard let self else { return }
+                elapsedTime = Date().timeIntervalSince(timerStartDate ?? Date())
+            }
+    }
+
+    private func stopTimer() {
+        timerCancellable?.cancel()
+        timerCancellable = nil
+    }
+
+    private func resetTimer() {
+        stopTimer()
+        elapsedTime = 0
+        startTimer()
     }
 }
