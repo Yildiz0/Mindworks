@@ -37,6 +37,10 @@ struct WordCubeUI: View {
                     )
                     .tint(.orange)
                     .padding(.horizontal)
+
+                    Text(String(format: "%.2f", vm.elapsedTime))
+                        .font(.title3.monospacedDigit())
+                        .foregroundColor(.primary)
                 }
                 .padding(.top, 24)
                 
@@ -89,7 +93,7 @@ struct WordCubeUI: View {
                     resultButtons
                         .padding(.horizontal)
                         .padding(.bottom, 24)
-                } else {
+                } else if vmPhase != .gameOver {
                     mainButton
                         .padding(.horizontal)
                         .padding(.bottom, 24)
@@ -201,21 +205,49 @@ struct WordCubeUI: View {
     }
     
     private var gameOverView: some View {
-        VStack(spacing: 16) {
-            Text("Game Over")
-                .font(.title2)
-            
-            Text(vm.feedbackMessage)
-                .foregroundColor(.secondary)
-                .multilineTextAlignment(.center)
-                .padding(.horizontal)
-            
-            Text("Final Score: \(vm.score) points")
-                .font(.title3)
-                .foregroundColor(.purple)
-                .padding(.top, 8)
+        ZStack {
+            Color.black.opacity(0.35)
+                .ignoresSafeArea()
+
+            VStack(spacing: 16) {
+                Text("İstatistikler")
+                    .font(.title2.bold())
+
+                VStack(spacing: 12) {
+                    statRow(title: "Doğru", value: "\(vm.totalCorrect)")
+                    statRow(title: "Yanlış", value: "\(vm.totalWrong)")
+                    statRow(title: "Ortalama cevap", value: String(format: "%.2f sn", vm.averageResponseTime))
+                    statRow(title: "Doğruluk", value: String(format: "%.2f%%", vm.accuracyRate * 100))
+                }
+                .padding(.vertical, 8)
+
+                Button(action: { router.navigateToRoot() }) {
+                    Text("Ana ekran")
+                        .font(.headline)
+                        .foregroundColor(.blue)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 12)
+                        .background(Color.white)
+                        .cornerRadius(20)
+                }
+
+                Button(action: { vm.restartGameTapped() }) {
+                    Text("Yeniden oyna")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 12)
+                        .background(Color.blue)
+                        .cornerRadius(20)
+                }
+            }
+            .padding(24)
+            .background(
+                RoundedRectangle(cornerRadius: 24)
+                    .fill(Color(.systemGray5))
+            )
+            .padding(.horizontal, 32)
         }
-        .frame(maxWidth: .infinity)
     }
     
     // MARK: - Buttons
@@ -286,6 +318,16 @@ struct WordCubeUI: View {
                     .cornerRadius(20)
                     .shadow(radius: 4, y: 2)
             }
+        }
+    }
+
+    private func statRow(title: String, value: String) -> some View {
+        HStack {
+            Text("\(title):")
+                .foregroundColor(.secondary)
+            Spacer()
+            Text(value)
+                .foregroundColor(.primary)
         }
     }
 }
