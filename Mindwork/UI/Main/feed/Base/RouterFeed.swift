@@ -19,6 +19,7 @@ final class RouterFeed: ObservableObject {
         case which_different
         case reflex
         case word_cube
+        case timing
     }
     
     @Published var navPath = NavigationPath()
