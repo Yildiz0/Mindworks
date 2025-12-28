@@ -130,6 +130,8 @@ struct FeedUI: View {
             routerFeed.navigate(to: .reflex)
         case .wordCube:
             routerFeed.navigate(to: .word_cube)
+        case .timing:
+            routerFeed.navigate(to: .timing)
         case .none:
             routerFeed.navigate(to: .colorful_words)
         }
@@ -151,4 +153,3 @@ struct SubjectsView: View {
 #Preview {
     FeedUI()
 }
-

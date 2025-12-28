@@ -66,6 +66,12 @@ struct BaseTabViewUI: View {
                         }.onDisappear {
                             tabbarController.showTabbar()
                         }
+                    case .timing:
+                        TimingGameUI().onAppear {
+                            tabbarController.hideTabbar()
+                        }.onDisappear {
+                            tabbarController.showTabbar()
+                        }
                     }
                 }.tabbarVisibility(visibility: tabbarController.isVisible)
             }.tabItem {
