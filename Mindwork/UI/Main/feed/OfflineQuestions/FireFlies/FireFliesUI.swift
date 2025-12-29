@@ -11,7 +11,9 @@ struct FirefliesUI: View {
     
     @StateObject private var vm = FirefliesGameViewModel()
     @EnvironmentObject var router: RouterFeed
-
+    
+    @State private var showStatsPopup: Bool = false
+    
     var body: some View {
         ZStack {
             Color(.systemBackground)
@@ -53,9 +55,11 @@ struct FirefliesUI: View {
                             .font(.headline)
                             .foregroundColor(.white)
                         
-                        Text(cardSubtitle)
-                            .font(.subheadline)
-                            .foregroundColor(.white.opacity(0.9))
+                        if !cardSubtitle.isEmpty {
+                            Text(cardSubtitle)
+                                .font(.subheadline)
+                                .foregroundColor(.white.opacity(0.9))
+                        }
                     }
                     .multilineTextAlignment(.center)
                     .padding()
@@ -87,6 +91,14 @@ struct FirefliesUI: View {
                         .padding(.bottom, 24)
                 }
             }
+            
+            // ✅ Popup overlay
+            if showStatsPopup {
+                statsPopup
+            }
+        }
+        .onChange(of: vm.phase) { newPhase in
+            showStatsPopup = (newPhase == .gameOver)
         }
     }
     
@@ -110,9 +122,9 @@ struct FirefliesUI: View {
     private var cardSubtitle: String {
         switch vm.phase {
         case .idle:
-            return "You will see a sequence of fireflies lighting up. You have two attempts to repeat it correctly."
+            return "You will see a sequence of fireflies lighting up.\nMemorize the lighting order.\nYou have two attempts to repeat it correctly."
         case .showingSequence:
-            return "Focus on the sequence. Do not tap yet."
+            return ""
         case .waitingForInput:
             if vm.attemptsThisRound == 0 {
                 return "Tap the fireflies in the same order. You have 2 attempts."
@@ -149,8 +161,10 @@ struct FirefliesUI: View {
     
     private var firefliesGrid: some View {
         VStack(spacing: 24) {
-            Text(gridStatusText)
-                .foregroundColor(.secondary)
+            if !gridStatusText.isEmpty {
+                Text(gridStatusText)
+                    .foregroundColor(.secondary)
+            }
             
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 20), count: 4), spacing: 20) {
                 ForEach(0..<vm.fireflyCount, id: \.self) { index in
@@ -172,7 +186,7 @@ struct FirefliesUI: View {
     private var gridStatusText: String {
         switch vm.phase {
         case .showingSequence:
-            return "Memorize the lighting order."
+            return ""
         case .waitingForInput:
             let attemptText = vm.attemptsThisRound == 0 ? "Attempt 1 of 2" : "Attempt 2 of 2"
             return "\(attemptText) • Your taps: \(vm.userSequence.count)/\(vm.sequence.count)"
@@ -254,6 +268,87 @@ struct FirefliesUI: View {
                     .shadow(radius: 4, y: 2)
             }
         }
+    }
+    
+    // MARK: - Popup (Statistics)
+    
+    private var statsPopup: some View {
+        ZStack {
+            Color.black.opacity(0.35)
+                .ignoresSafeArea()
+                .onTapGesture { }
+            
+            VStack(spacing: 18) {
+                Text("İstatistikler")
+                    .font(.title3.weight(.semibold))
+                    .foregroundColor(.black)
+                
+                VStack(spacing: 14) {
+                    Text("Doğru: \(vm.correctCount)")
+                    Text("Yanlış: \(vm.wrongCount)")
+                    
+                    Text("Ortalama cevap: \(formatSeconds(vm.averageAnswerTime)) sn")
+                    
+                    Text("Doğruluk: \(formatPercent(vm.accuracyPercent))")
+                }
+                .font(.system(size: 18, weight: .regular))
+                .foregroundColor(.black.opacity(0.85))
+                
+                VStack(spacing: 12) {
+                    Button {
+                        // Eğer router ile ana ekrana dönmek istiyorsan burayı kendi RouterFeed fonksiyonuna bağla:
+                        // router.goHome()
+                        
+                        showStatsPopup = false
+                        vm.restartFromPopup()
+                    } label: {
+                        Text("Ana ekran")
+                            .font(.headline)
+                            .foregroundColor(.blue)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 14)
+                            .background(Color.white.opacity(0.85))
+                            .cornerRadius(18)
+                    }
+                    
+                    Button {
+                        showStatsPopup = false
+                        vm.restartFromPopup()
+                    } label: {
+                        Text("Yeniden oyna")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 14)
+                            .background(Color.blue)
+                            .cornerRadius(18)
+                    }
+                }
+            }
+            .padding(.horizontal, 22)
+            .padding(.vertical, 22)
+            .frame(maxWidth: 340)
+            .background(.ultraThinMaterial)
+            .cornerRadius(26)
+            .shadow(radius: 18)
+        }
+    }
+    
+    private func formatSeconds(_ value: TimeInterval) -> String {
+        let nf = NumberFormatter()
+        nf.locale = Locale(identifier: "tr_TR")
+        nf.minimumFractionDigits = 2
+        nf.maximumFractionDigits = 2
+        return nf.string(from: NSNumber(value: value)) ?? "0,00"
+    }
+    
+    private func formatPercent(_ value: Double) -> String {
+        let nf = NumberFormatter()
+        nf.locale = Locale(identifier: "tr_TR")
+        nf.minimumFractionDigits = 2
+        nf.maximumFractionDigits = 2
+        let s = nf.string(from: NSNumber(value: value)) ?? "0,00"
+        return "%\(s)"
     }
 }
 
