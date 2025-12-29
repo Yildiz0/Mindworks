@@ -37,6 +37,8 @@ struct FirefliesUI: View {
                     Text("Score: \(vm.score)")
                         .font(.subheadline)
                         .foregroundColor(.orange)
+                    
+                    answerTimerBar
                 }
                 .padding(.top, 24)
                 
@@ -198,6 +200,22 @@ struct FirefliesUI: View {
             return "Game finished. You can restart anytime."
         }
     }
+
+    private var answerTimerBar: some View {
+        VStack(spacing: 6) {
+            ProgressView(value: vm.answerElapsedTime, total: vm.answerElapsedTime + 5)
+                .progressViewStyle(.linear)
+                .tint(.orange)
+                .frame(height: 6)
+                .background(Color.black.opacity(0.08))
+                .clipShape(Capsule())
+
+            Text("Süre: \(formatTimerSeconds(vm.answerElapsedTime))")
+                .font(.caption)
+                .foregroundColor(.secondary)
+        }
+        .frame(maxWidth: 220)
+    }
     
     // MARK: - Buttons
     
@@ -349,6 +367,14 @@ struct FirefliesUI: View {
         nf.maximumFractionDigits = 2
         let s = nf.string(from: NSNumber(value: value)) ?? "0,00"
         return "%\(s)"
+    }
+
+    private func formatTimerSeconds(_ value: TimeInterval) -> String {
+        let nf = NumberFormatter()
+        nf.locale = Locale(identifier: "en_US_POSIX")
+        nf.minimumFractionDigits = 1
+        nf.maximumFractionDigits = 1
+        return nf.string(from: NSNumber(value: value)) ?? "0.0"
     }
 }
 

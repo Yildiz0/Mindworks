@@ -31,6 +31,7 @@ final class FirefliesGameViewModel: ObservableObject {
     @Published private(set) var correctCount: Int = 0
     @Published private(set) var wrongCount: Int = 0
     @Published private(set) var totalAnswerTime: TimeInterval = 0
+    @Published private(set) var answerElapsedTime: TimeInterval = 0
     
     var totalAttempts: Int { correctCount + wrongCount }
     
@@ -48,6 +49,9 @@ final class FirefliesGameViewModel: ObservableObject {
     
     private let model = FirefliesGameModel()
     private var attemptStartTime: Date? = nil
+    private var answerTimerStart: Date? = nil
+    private var answerTimerCancellable: AnyCancellable? = nil
+    private var accumulatedAnswerTime: TimeInterval = 0
     
     // Expose some model configuration for the View
     var minLevel: Int { model.minLevel }
@@ -96,6 +100,7 @@ final class FirefliesGameViewModel: ObservableObject {
     func endGameTapped() {
         // Stop any running timer (optional)
         attemptStartTime = nil
+        stopAnswerTimer()
         
         phase = .gameOver
         // feedbackMessage artık popup için şart değil ama dursun
@@ -129,6 +134,9 @@ final class FirefliesGameViewModel: ObservableObject {
         correctCount = 0
         wrongCount = 0
         totalAnswerTime = 0
+        accumulatedAnswerTime = 0
+        answerElapsedTime = 0
+        stopAnswerTimer()
         
         sequence = []
         userSequence = []
@@ -148,6 +156,7 @@ final class FirefliesGameViewModel: ObservableObject {
         attemptsThisRound = 0
         lastRoundCorrect = false
         attemptStartTime = nil
+        stopAnswerTimer()
         showSequenceStep(at: 0)
     }
     
@@ -172,6 +181,7 @@ final class FirefliesGameViewModel: ObservableObject {
                 self.phase = .waitingForInput
                 // Start timing when user can start input
                 self.attemptStartTime = Date()
+                self.startAnswerTimer()
             }
         }
     }
@@ -184,6 +194,7 @@ final class FirefliesGameViewModel: ObservableObject {
         }()
         totalAnswerTime += elapsed
         attemptStartTime = nil
+        stopAnswerTimer()
         
         let result = model.evaluateAttempt(
             sequence: sequence,
@@ -218,7 +229,29 @@ final class FirefliesGameViewModel: ObservableObject {
             userSequence = []
             // Restart timing for the second attempt
             attemptStartTime = Date()
+            startAnswerTimer()
             // phase stays in .waitingForInput
         }
+    }
+
+    private func startAnswerTimer() {
+        guard answerTimerCancellable == nil else { return }
+        answerTimerStart = Date()
+        answerTimerCancellable = Timer.publish(every: 0.1, on: .main, in: .common)
+            .autoconnect()
+            .sink { [weak self] _ in
+                guard let self, let start = self.answerTimerStart else { return }
+                self.answerElapsedTime = self.accumulatedAnswerTime + Date().timeIntervalSince(start)
+            }
+    }
+
+    private func stopAnswerTimer() {
+        if let start = answerTimerStart {
+            accumulatedAnswerTime += Date().timeIntervalSince(start)
+        }
+        answerTimerStart = nil
+        answerTimerCancellable?.cancel()
+        answerTimerCancellable = nil
+        answerElapsedTime = accumulatedAnswerTime
     }
 }
