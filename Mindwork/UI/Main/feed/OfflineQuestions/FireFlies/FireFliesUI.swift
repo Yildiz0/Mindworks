@@ -40,7 +40,7 @@ struct FirefliesUI: View {
                     
                     answerTimerBar
                 }
-                .padding(.top, 24)
+                .padding(.top, 8)
                 
                 // Card
                 ZStack {
@@ -214,7 +214,8 @@ struct FirefliesUI: View {
                 .font(.caption)
                 .foregroundColor(.secondary)
         }
-        .frame(maxWidth: 220)
+        .frame(maxWidth: .infinity)
+        .padding(.horizontal, 24)
     }
     
     // MARK: - Buttons
