@@ -263,6 +263,7 @@ Invite your partner and begin crafting memories together 💫";
 "word_cube_title" = "Word Cube";
 "reflex_title" = "Reflex";
 "timing_title" = "Timing";
+"reverse_word_title" = "Reverse Word";
 
 // WHICH COLOR KEYS
 "which_color_white"      = "Which of the following is white";

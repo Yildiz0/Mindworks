@@ -264,6 +264,7 @@ Partnerini davet et, birlikte anılarla dolu bir yolculuğa çıkın ☘️";
 "word_cube_title" = "Kelime Küpü";
 "reflex_title" = "Refleks";
 "timing_title" = "Zamanlama";
+"reverse_word_title" = "Kelimeyi Tersine Çevir";
 
 // WHICH COLOR KEYS
 "which_color_white"      = "Aşağıdakilerden hangisi beyaz renklidir";

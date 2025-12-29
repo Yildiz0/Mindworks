@@ -72,6 +72,12 @@ struct BaseTabViewUI: View {
                         }.onDisappear {
                             tabbarController.showTabbar()
                         }
+                    case .reverse_word:
+                        ReverseWordUI().onAppear {
+                            tabbarController.hideTabbar()
+                        }.onDisappear {
+                            tabbarController.showTabbar()
+                        }
                     }
                 }.tabbarVisibility(visibility: tabbarController.isVisible)
             }.tabItem {
