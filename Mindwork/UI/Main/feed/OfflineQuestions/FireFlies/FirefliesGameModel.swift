@@ -40,8 +40,29 @@ struct FirefliesGameModel {
     // MARK: - Helpers (pure functions)
     
     /// Generate a random sequence of firefly indices.
-    func generateSequence(length: Int) -> [Int] {
-        (0..<length).map { _ in Int.random(in: 0..<fireflyCount) }
+    func generateSequence(length: Int, level: Int) -> [Int] {
+        var sequence: [Int] = []
+        let preventDouble = level <= (minLevel + 1)
+        
+        for _ in 0..<length {
+            var next = Int.random(in: 0..<fireflyCount)
+            
+            if preventDouble {
+                while next == sequence.last {
+                    next = Int.random(in: 0..<fireflyCount)
+                }
+            } else if sequence.count >= 2,
+                      let last = sequence.last,
+                      last == sequence[sequence.count - 2] {
+                while next == last {
+                    next = Int.random(in: 0..<fireflyCount)
+                }
+            }
+            
+            sequence.append(next)
+        }
+        
+        return sequence
     }
     
     /// Evaluate one attempt for the current round.
@@ -112,4 +133,3 @@ struct FirefliesGameModel {
         )
     }
 }
-

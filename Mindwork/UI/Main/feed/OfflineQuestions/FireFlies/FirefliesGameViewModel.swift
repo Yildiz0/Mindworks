@@ -115,7 +115,7 @@ final class FirefliesGameViewModel: ObservableObject {
     // MARK: - Game Flow
     
     func startNewRound() {
-        sequence = model.generateSequence(length: level)
+        sequence = model.generateSequence(length: level, level: level)
         userSequence = []
         highlightedIndex = nil
         feedbackMessage = ""
