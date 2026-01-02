@@ -225,6 +225,8 @@ Invite your partner and begin crafting memories together 💫";
 "text_turquoise"  = "Turquoise";
 "showing_numbers" = "Starting numbers";
 "start_remember" = "Start to memorize!";
+"catchpair_intro" = "Memorize the numbers shown below in order.";
+"start" = "Start";
 "loading" = "Loading...";
 
 //Numbers
