@@ -353,13 +353,10 @@ struct WordCubeUI: View {
     }
 
     private func statRow(title: String, value: String) -> some View {
-        HStack {
-            Text("\(title):")
-                .foregroundColor(.secondary)
-            Spacer()
-            Text(value)
-                .foregroundColor(.primary)
-        }
+        Text("\(title): \(value)")
+            .foregroundColor(.primary)
+            .frame(maxWidth: .infinity, alignment: .center)
+            .multilineTextAlignment(.center)
     }
 }
 
