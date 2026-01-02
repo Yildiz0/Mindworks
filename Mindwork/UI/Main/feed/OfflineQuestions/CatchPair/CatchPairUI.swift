@@ -49,6 +49,13 @@ struct CatchPairUI: View {
                 .background(Color.clear)
                 .padding(.top, 32)
 
+            if viewModel.waitingToStart {
+                btnTextGradientSmall(action: {
+                    viewModel.startGame()
+                }, text: StringKey.start)
+                .padding(.top, 16)
+            }
+
             VStack{
                 Spacer()
                 ColorAnswerButton(
