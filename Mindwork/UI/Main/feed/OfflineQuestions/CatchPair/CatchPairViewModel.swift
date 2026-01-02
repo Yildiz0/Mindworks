@@ -13,12 +13,13 @@ import FirebaseFirestore
 
 final class CatchPairViewModel: BaseViewModel {
     // MARK: - Faz
-    private enum Phase { case showing, quiz, finished }
-    private var phase: Phase = .showing
+    private enum Phase { case waiting, showing, quiz, finished }
+    private var phase: Phase = .waiting
 
     // Gösterim parametreleri
     private let showDurationSeconds = 8
     private let showStepSeconds = 2
+    private let startDelaySeconds = 1
     private var shownCount = 0
 
     // MARK: - Timers
@@ -45,6 +46,7 @@ final class CatchPairViewModel: BaseViewModel {
     @Published var averageResponseTime: Double = 0.0
     @Published var percentageTruth: Double = 0.0
     @Published var preparingGame = true
+    @Published var waitingToStart = true
     @Published var isTrue: Bool? = nil
     private var totalResponseTime: Double = 0.0
     private var totalAnswered: Int = 0
@@ -61,7 +63,7 @@ final class CatchPairViewModel: BaseViewModel {
         super.init()
         initializeQuestions()
         startUiTimer()
-        startShowPhase()
+        startWaitingPhase()
     }
 
     deinit {
@@ -94,7 +96,7 @@ final class CatchPairViewModel: BaseViewModel {
         initializeQuestions()
 
         // faz
-        startShowPhase()
+        startWaitingPhase()
     }
 
     func checkQuestion(selectedNumber: Int) {
@@ -144,7 +146,24 @@ final class CatchPairViewModel: BaseViewModel {
         isTrue = false
     }
 
+    func startGame() {
+        guard phase == .waiting else { return }
+        startShowPhase()
+    }
+
     // MARK: - Faz Yönetimi
+    private func startWaitingPhase() {
+        phase = .waiting
+        timeCounter = 0
+        uiTick = 0
+        shownCount = 0
+        currentNumberIndex = 0
+        currentNumber = StringKey.empty
+        questionTitle = StringKey.catchpair_intro
+        preparingGame = true
+        waitingToStart = true
+    }
+
     private func startShowPhase() {
         phase = .showing
         timeCounter = 0
@@ -154,6 +173,7 @@ final class CatchPairViewModel: BaseViewModel {
         currentNumber = StringKey.empty
         questionTitle = StringKey.start_remember
         preparingGame = true
+        waitingToStart = false
     }
 
     private func startQuizPhase() {
@@ -163,6 +183,7 @@ final class CatchPairViewModel: BaseViewModel {
         answeredQuestion = false
         isAnswerTrue = false
         preparingGame = false
+        waitingToStart = false
         applyQuestion(at: 0)
         startGameTimer()
     }
@@ -214,14 +235,19 @@ final class CatchPairViewModel: BaseViewModel {
             self.uiTick += 1
 
             switch self.phase {
+            case .waiting:
+                break
             case .showing:
-                // 3,6,9,12,15 saniyelerde sayı bas
-                if self.uiTick % self.showStepSeconds == 0, self.uiTick <= self.showDurationSeconds {
-                    self.showNextNumber()
-                    self.shownCount += 1
-                    self.answeredQuestion = true
+                // kısa gecikmeden sonra sayıları aralıklarla göster
+                if self.uiTick >= self.startDelaySeconds {
+                    let adjustedTick = self.uiTick - self.startDelaySeconds
+                    if adjustedTick % self.showStepSeconds == 0, self.uiTick <= self.showDurationSeconds {
+                        self.showNextNumber()
+                        self.shownCount += 1
+                        self.answeredQuestion = true
+                    }
                 }
-                // 15. saniye tamamlandı → quiz
+                // gösterim tamamlandı → quiz
                 if self.uiTick >= self.showDurationSeconds {
                     self.startQuizPhase()
                 }
