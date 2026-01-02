@@ -19,7 +19,7 @@ final class CatchPairViewModel: BaseViewModel {
     // Gösterim parametreleri
     private let showDurationSeconds = 8
     private let showStepSeconds = 2
-    private let startDelaySeconds = 1
+    private let startDelaySeconds = 3
     private var shownCount = 0
 
     // MARK: - Timers
@@ -153,16 +153,17 @@ final class CatchPairViewModel: BaseViewModel {
 
     // MARK: - Faz Yönetimi
     private func startWaitingPhase() {
-        phase = .waiting
-        timeCounter = 0
-        uiTick = 0
-        shownCount = 0
-        currentNumberIndex = 0
-        currentNumber = StringKey.start
-        questionTitle = StringKey.catchpair_intro
-        preparingGame = true
-        waitingToStart = true
-    }
+           phase = .waiting
+           timeCounter = 0
+           uiTick = 0
+           shownCount = 0
+           currentNumberIndex = 0
+           currentNumber = StringKey.start
+           questionTitle = StringKey.catchpair_intro
+           preparingGame = true
+           waitingToStart = true
+           randomColor = .blue
+       }
 
     private func startShowPhase() {
         phase = .showing

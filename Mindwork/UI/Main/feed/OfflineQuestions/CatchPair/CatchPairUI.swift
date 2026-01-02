@@ -49,12 +49,7 @@ struct CatchPairUI: View {
                 .background(Color.clear)
                 .padding(.top, 32)
 
-            if viewModel.waitingToStart {
-                btnTextGradientSmall(action: {
-                    viewModel.startGame()
-                }, text: StringKey.start)
-                .padding(.top, 16)
-            }
+            // ✅ Turuncu "Başlat" butonu KALDIRILDI (başka hiçbir şey değişmedi)
 
             VStack{
                 Spacer()
@@ -102,12 +97,13 @@ struct CatchPairUI: View {
             accuracy: StatsKey.accuracy(percent: viewModel.percentageTruth),
             acceptText: StringKey.start_again,
             deniedText: StringKey.main_page,
-                      acceptFunc: {
-            viewModel.startAgain()
-         },
-                      deniedFunc: {
-            router.navigateBack()
-         })
+            acceptFunc: {
+                viewModel.startAgain()
+            },
+            deniedFunc: {
+                router.navigateBack()
+            }
+        )
     }
     
     private var keyboards: some View {
@@ -134,6 +130,7 @@ struct CatchPairUI: View {
             
         }
     }
+
     struct KeypadButton: View {
         let label: Int
         let action: () -> Void
@@ -146,6 +143,7 @@ struct CatchPairUI: View {
             }.tint(.primary)
         }
     }
+
     struct TextButton: View {
         let label: String
         let action: () -> Void
@@ -158,8 +156,6 @@ struct CatchPairUI: View {
             }.tint(.primary)
         }
     }
-        
-    
 
     // MARK: - Offset üretimi
     private func updateOffsets(animated: Bool) {
@@ -182,3 +178,4 @@ struct CatchPairUI: View {
 #Preview {
     CatchPairUI().environmentObject(RouterFeed())
 }
+
