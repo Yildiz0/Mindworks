@@ -158,7 +158,7 @@ final class CatchPairViewModel: BaseViewModel {
         uiTick = 0
         shownCount = 0
         currentNumberIndex = 0
-        currentNumber = StringKey.empty
+        currentNumber = StringKey.start
         questionTitle = StringKey.catchpair_intro
         preparingGame = true
         waitingToStart = true

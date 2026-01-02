@@ -61,9 +61,15 @@ struct CatchPairUI: View {
                 ColorAnswerButton(
                     title: viewModel.currentNumber,
                     color: viewModel.randomColor
-                ) { viewModel.checkQuestion(selectedNumber: 0) }
+                ) {
+                    if viewModel.waitingToStart {
+                        viewModel.startGame()
+                    } else {
+                        viewModel.checkQuestion(selectedNumber: 0)
+                    }
+                }
                 .offset(offsets[0])
-                .disabled(viewModel.answeredQuestion)
+                .disabled(viewModel.answeredQuestion && !viewModel.waitingToStart)
                 Spacer()
             }.frame(maxWidth: .infinity,maxHeight: .infinity).background(Color.gray.opacity(0.04)).cornerRadius(16)
             
